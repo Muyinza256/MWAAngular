@@ -1,0 +1,61 @@
+<header>
+    <div class="container">
+      <img src="../assets/img/logo.png" class="logo" alt="">
+      <form class="form-inline">
+        <div class="form-group">
+          <label class="sr-only" for="username">Username</label>
+          <input type="text" class="form-control" id="username" name="username" [(ngModel)] = "username" placeholder="Username">          
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputPassword3">Password</label>
+          <input type="password" class="form-control" id="password" name="password" [(ngModel)] = "password" placeholder="Password">
+        </div>
+        <button (click)="login(alert.open())" class="btn btn-default">Sign in</button><br>
+      </form>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">          
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Sign Up
+            </div>
+            <div class="panel-body">
+              <form>
+                <div class="form-group">
+                  <label for="signUpUsername">Username</label>
+                  <input type="text" class="form-control" id="signUpUsername" name="signUpUsername" [(ngModel)] = "signUpUsername" placeholder="Username">          
+                </div>
+                <div class="form-group">
+                  <label for="signUpEmail">Email</label>
+                  <input type="email" class="form-control" id="signUpEmail" name="signUpEmail" [(ngModel)] = "signUpEmail" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                  <label for="signUpFirstname">Firstname</label>
+                  <input type="text" class="form-control" id="signUpFirstname" name="signUpFirstname" [(ngModel)] = "signUpFirstname" placeholder="Firstname">
+                </div>
+                <div class="form-group">
+                  <label for="signUpLastname">Lastname</label>
+                  <input type="text" class="form-control" id="signUpLastname" name="signUpLastname" [(ngModel)] = "signUpLastname" placeholder="Lastname">
+                </div>
+                <div class="form-group">
+                  <label for="signUpPassword">Password</label>
+                  <input type="password" class="form-control" id="signUpPassword" name="signUpPassword" [(ngModel)] = "signUpPassword" placeholder="Password">
+                </div>
+                <button class="btn btn-default" #signUpBtn (click)="signUp(alert.open())">SignUp</button>
+              </form>
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+  </section>
+  <igx-dialog #alert
+title="{{alertTitle}}"
+message="{{alertMessage}}"
+leftButtonLabel="OK"
+(onLeftButtonSelect)="alert.close()">
+</igx-dialog>
