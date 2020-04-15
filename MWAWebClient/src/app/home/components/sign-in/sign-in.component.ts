@@ -132,10 +132,13 @@ export class SignInComponent implements OnInit,OnDestroy {
       var usrCredentials = {
         _username : this.username,
         _password : this.password
-      }
+      };
+      this.showLoading();
       this.authService.loginUser(usrCredentials,(usr) => {
-        this.router.navigate(['/dashboard']);
+        this.hideLoading();
+        this.router.navigate(['dashboard/home']);
       },err => {
+        this.hideLoading();
         this.alertTitle = "Login Failed";
         this.alertMessage = err.error.message;
         openDialog();
@@ -148,7 +151,7 @@ export class SignInComponent implements OnInit,OnDestroy {
     this.destroy$.complete();
   }
 
-  public showLoading()
+  showLoading()
   {
     if (!this._overlayShown) {      
       if (!this._overlayId) {

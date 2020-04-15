@@ -12,6 +12,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomeModule } from './home/home.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.component';
+import { UsersModule } from './users/users.module';
+import { PostsModule } from './posts/posts.module';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { LoadingOverlayComponent } from './loading-overlay/loading-overlay.compo
     NgbModule,
     BrowserModule,
     HomeModule,
+    UsersModule,
+    PostsModule,
+    AdminModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule
