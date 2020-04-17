@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IgxDialogModule,IgxButtonModule,IgxRippleModule,IgxIconModule,
 	IgxOverlayService,
-	IgxCardModule } from 'igniteui-angular';
+  IgxCardModule } from 'igniteui-angular';
+  import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +24,8 @@ import { AdminModule } from './admin/admin.module';
     LoadingOverlayComponent
   ],
   imports: [
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
     IgxCardModule,
     NgbModule,
     BrowserModule,
@@ -30,9 +33,8 @@ import { AdminModule } from './admin/admin.module';
     UsersModule,
     PostsModule,
     AdminModule,
-    FormsModule,
-    AppRoutingModule,
-    BrowserAnimationsModule
+    FormsModule,        
+    AppRoutingModule
   ],
   providers: [IgxOverlayService],
   bootstrap: [AppComponent]

@@ -12,7 +12,7 @@ import { User } from '../../models/User';
 export class AuthenticationService {
 
   url:string = environment.apiUrl;
-  loggedInUser:User;
+  public loggedInUser:User;
 
   constructor(private http:HttpClient) { }
 
@@ -27,7 +27,7 @@ export class AuthenticationService {
     });    
   }
 
-  getDefaultHeaders(){
+  public getDefaultHeaders(){
     return {
       headers: new HttpHeaders({
         'Content-Type':'application/json'
@@ -35,10 +35,26 @@ export class AuthenticationService {
     };
   }
 
-  getAuthorisationHeaders(){
+  public getAuthorisationHeaders(){
     return{
       headers: new HttpHeaders(
-        {'Content-Type':'application/json','Authorisation':this.loggedInUser._tokens[0]}        
+        {'Content-Type':'application/json','Authorisation':this.loggedInUser._tokens[0]}
+        )
+    };
+  }
+
+  public getBlobAuthorisationHeaders(){
+    return{
+      headers: new HttpHeaders(
+        {'Content-Type':'application/octet-stream','Authorisation':this.loggedInUser._tokens[0]}
+        )
+    };
+  }
+
+  public getEmptyAuthorisationHeaders(){
+    return{
+      headers: new HttpHeaders(
+        {'Authorisation':this.loggedInUser._tokens[0]}
         )
     };
   }

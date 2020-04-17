@@ -33,6 +33,11 @@ export class SignInComponent implements OnInit,OnDestroy {
   signUpFirstname:string;
   signUpLastname:string;
   signUpPassword:string;
+  signUpCity:string;
+  signUpState:string;
+  signUpStreet:string;
+  signUpZip:string;
+  signUpDateOfBirth:Date;
 
   constructor(private authService : AuthenticationService,private router: Router,@Inject(IgxOverlayService) public overlayService: IgxOverlayService) {
     this.overlayService.onClosed.pipe(
@@ -76,18 +81,49 @@ export class SignInComponent implements OnInit,OnDestroy {
       this.alertMessage="Missing Password";
       openDialog();
     }
+    if(!this.signUpCity)
+    {
+      this.alertTitle= "Alert !";
+      this.alertMessage="Missing City";
+      openDialog();
+    }
+    if(!this.signUpZip)
+    {
+      this.alertTitle= "Alert !";
+      this.alertMessage="Missing Zip";
+      openDialog();
+    }
+    if(!this.signUpState)
+    {
+      this.alertTitle= "Alert !";
+      this.alertMessage="Missing State";
+      openDialog();
+    }
+    if(!this.signUpStreet)
+    {
+      this.alertTitle= "Alert !";
+      this.alertMessage="Missing Street";
+      openDialog();
+    }
     callback();
   }
 
   signUp(openDialog){
+    
     this.validateSignUpForm(openDialog,() => {
+      console.log(this.signUpDateOfBirth);
       var usr = {
         _username:this.signUpUsername,
         _email:this.signUpEmail,
         _firstname:this.signUpFirstname,
         _lastname:this.signUpLastname,
         _password:this.signUpPassword,
-        _role:"user"
+        _role:"user",
+        _city:this.signUpCity,
+        _state:this.signUpState,
+        _zip:this.signUpZip,
+        _street:this.signUpStreet,
+        _dateOfBirth:this.signUpDateOfBirth.toDateString()
       }
       this.showLoading();
       this.authService.signUpUser(usr,(user) => {

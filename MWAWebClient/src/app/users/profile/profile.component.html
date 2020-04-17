@@ -1,1 +1,103 @@
-<p>profile works!</p>
+<section>
+    <div class="container">
+      <div class="row">
+          <div class="col-md-10">
+              <div class="profile">
+                <h3 class="page-header">{{user._firstname}} {{user._lastname}}</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                          <img *ngIf="isProfileImageReady" [src]="imgToShow" class="img-thumbnail" alt="">
+                            <img *ngIf="!isProfileImageReady" src="../../../assets/img/user.png" class="img-thumbnail" alt="">
+                            <input style="display: none" type="file" #fileInput (change)="onImageSelect($event)">
+                            <button (click)="fileInput.click()">Select File</button>
+                        </div>
+                        <div class="col-md-6">
+                            <form>
+                                <div class="row form-group">
+                                    <div class="col-md-2">
+                                      <label>Username</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="username" name="username" [(ngModel)] = "username" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-2">
+                                      <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" id="mail" name="signUpEmail" [(ngModel)] = "email" placeholder="Email Address">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-2">
+                                      <label>Firstname</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)] = "firstname" placeholder="Firstname">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-2">
+                                      <label>Lastname</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)] = "lastname" placeholder="Lastname">
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-2">
+                                      <label>Birthday</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <input type="text" placeholder="Datepicker" class="form-control" id="dateOfBirth" name="dateOfBirth" bsDatepicker [(ngModel)]="dateOfBirth" [bsConfig]="{ isAnimated: true }">
+                                    </div>
+                                  </div>
+                                  <div class="row form-group">
+                                    <div class="col-md-2">
+                                      <label>State</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <input type="text" class="form-control" id="state" name="state" [(ngModel)] = "state" placeholder="State">
+                                    </div>
+                                  </div>
+                                  <div class="row form-group">
+                                    <div class="col-md-2">
+                                      <label>City</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <input type="text" class="form-control" id="city" name="city" [(ngModel)] = "city" placeholder="City">
+                                    </div>
+                                  </div>
+                                  <div class="row form-group">
+                                    <div class="col-md-2">
+                                      <label>Street</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <input type="text" class="form-control" id="street" name="street" [(ngModel)] = "street" placeholder="Street">
+                                    </div>
+                                  </div>
+                                  <div class="row form-group">
+                                    <div class="col-md-2">
+                                      <label>Zip</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                      <input type="text" class="form-control" id="zip" name="zip" [(ngModel)] = "zip" placeholder="Zip">
+                                    </div>
+                                  </div>
+                                  <div class="row form-group">
+                                      <div class="col-md-2">
+                                        <button class="btn btn-default" (click)="cancelChanges()" >Reset</button>
+                                      </div>
+                                      <div class="col-md-2">
+                                        <button class="btn btn-success" (click)="saveChanges()" >Submit</button>
+                                      </div>
+                                  </div>
+                              </form>
+                        </div>
+                    </div>
+              </div>            
+          </div>
+      </div>
+    </div>
+</section>

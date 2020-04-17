@@ -1,1 +1,24 @@
-<p>manage-users works!</p>
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="members">
+                <div class="panel panel-default">                    
+                    <div class="panel-body">
+                        <div class="col-md-12">
+                            <div class="col-md-8">
+                                <input type="text" (keyup)="search($event)" class="form-control" placeholder="Search">
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                            </div>
+                        </div>
+                </div>
+                <app-manage-users-item *ngFor="let user of displayableUsers" [user]="user">
+                    
+                </app-manage-users-item>
+           </div>
+        </div>
+      </div>
+   </div>
+</section>            

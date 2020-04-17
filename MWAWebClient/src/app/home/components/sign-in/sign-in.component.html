@@ -25,27 +25,93 @@
             </div>
             <div class="panel-body">
               <form>
-                <div class="form-group">
-                  <label for="signUpUsername">Username</label>
-                  <input type="text" class="form-control" id="signUpUsername" name="signUpUsername" [(ngModel)] = "signUpUsername" placeholder="Username">          
+                <div class="row form-group">
+                  <div class="col-md-2">
+                    <label>Username</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="signUpUsername" name="signUpUsername" [(ngModel)] = "signUpUsername" placeholder="Username">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="signUpEmail">Email</label>
-                  <input type="email" class="form-control" id="signUpEmail" name="signUpEmail" [(ngModel)] = "signUpEmail" placeholder="Email Address">
+                <div class="row form-group">
+                  <div class="col-md-2">
+                    <label>Email</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="email" class="form-control" id="signUpEmail" name="signUpEmail" [(ngModel)] = "signUpEmail" placeholder="Email Address">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="signUpFirstname">Firstname</label>
-                  <input type="text" class="form-control" id="signUpFirstname" name="signUpFirstname" [(ngModel)] = "signUpFirstname" placeholder="Firstname">
+                <div class="row form-group">
+                  <div class="col-md-2">
+                    <label>Firstname</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="signUpFirstname" name="signUpFirstname" [(ngModel)] = "signUpFirstname" placeholder="Firstname">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="signUpLastname">Lastname</label>
-                  <input type="text" class="form-control" id="signUpLastname" name="signUpLastname" [(ngModel)] = "signUpLastname" placeholder="Lastname">
+                <div class="row form-group">
+                  <div class="col-md-2">
+                    <label>Lastname</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="signUpLastname" name="signUpLastname" [(ngModel)] = "signUpLastname" placeholder="Lastname">
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="signUpPassword">Password</label>
-                  <input type="password" class="form-control" id="signUpPassword" name="signUpPassword" [(ngModel)] = "signUpPassword" placeholder="Password">
+                <div class="row form-group">
+                  <div class="col-md-2">
+                    <label>Password</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="password" class="form-control" id="signUpPassword" name="signUpPassword" [(ngModel)] = "signUpPassword" placeholder="Password">
+                  </div>
                 </div>
-                <button class="btn btn-default" #signUpBtn (click)="signUp(alert.open())">SignUp</button>
+                <div class="row form-group">
+                  <div class="col-md-2">
+                    <label>Birthday</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" placeholder="Birthdate" class="form-control" id="signUpDateOfBirth" name="signUpDateOfBirth" bsDatepicker [(ngModel)]="signUpDateOfBirth" [bsConfig]="{ isAnimated: true }">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-md-2">
+                    <label>State</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="signUpState" name="signUpState" [(ngModel)] = "signUpState" placeholder="State">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-md-2">
+                    <label>City</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="signUpCity" name="signUpCity" [(ngModel)] = "signUpCity" placeholder="City">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-md-2">
+                    <label>Street</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="signUpStreet" name="signUpStreet" [(ngModel)] = "signUpStreet" placeholder="Street">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-md-2">
+                    <label>Zip</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="signUpZip" name="signUpZip" [(ngModel)] = "signUpZip" placeholder="Zip">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-md-2">
+                  </div>
+                  <div class="col-md-6">
+                    <button class="btn btn-success btn-block" #signUpBtn (click)="signUp(alert.open())">SignUp</button>
+                  </div>
+                </div>
               </form>
             </div>
           </div>

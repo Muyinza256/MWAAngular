@@ -11,7 +11,6 @@ import { ManageWordsComponent } from '../admin/manage-words/manage-words.compone
 import { AuthGuard } from '../auth/auth.guard';
 import { AuthorisationGuard } from '../auth/authorisation.guard';
 
-
 const routes: Routes = [
   {path: '',component:SignInComponent},
   {

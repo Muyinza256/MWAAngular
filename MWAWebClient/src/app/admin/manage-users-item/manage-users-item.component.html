@@ -1,0 +1,13 @@
+<div class="panel panel-default">                    
+    <div class="panel-body">
+        <div class="col-md-12">
+            <div class="col-md-8">
+                <h5>{{user._username}} {{user._firstname}} {{user._lastname}}</h5>
+            </div>
+            <div class="col-md-4">    
+                <button *ngIf="''+user._status == 'true'" (click)="deactivate()" class="btn btn-danger"><i class="fa fa-ban"></i>Deactivate</button>
+                <button *ngIf="''+user._status == 'false'" (click)="activate()" class="btn btn-success"><i class="fa fa-check"></i>Activate</button>
+            </div>
+            </div>
+        </div>
+</div>
