@@ -86,6 +86,11 @@
                                     </div>
                                   </div>
                                   <div class="row form-group">
+                                    <div class="col-md-4">
+                                      <label><input type="checkbox" #notificationCkBx [checked]="sendNotifications" [(ngModel)]="sendNotifications" (change)="onChangeSendNotifications(notificationCkBx.checked)">Send notifications</label>
+                                    </div>
+                                  </div>
+                                  <div class="row form-group">
                                       <div class="col-md-2">
                                         <button class="btn btn-default" (click)="cancelChanges()" >Reset</button>
                                       </div>

@@ -1,1 +1,32 @@
-<p>manage-words works!</p>
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="members">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Offensive words
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-12">
+                            <div class="col-md-8">
+                                <input type="text" id="specialWord" name="specialWord" class="form-control" placeholder="Offensive word" [(ngModel)]="specialWord">
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                                <button (click)="addWord()" class="btn btn-success">Add</button>
+                            </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ul>
+                            <li *ngFor="let word of words">{{word._text}}</li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>

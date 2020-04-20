@@ -1,0 +1,35 @@
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="members">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Unblocking Requests
+                    </div>
+                    <div class="panel-body">
+                        <div *ngFor="let request of blockRequests">
+                            <div class="panel panel-default">                    
+                                <div class="panel-body">
+                                    <div class="col-md-12">
+                                        <div class="col-md-8">
+                                            <h6>User : {{request._user._username}}</h6>
+                                            <h6>Reason : {{request._text}}</h6>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button  (click)="rejectRequest(request._id)" class="btn btn-danger"><i class="fa fa-ban"></i>Decline</button>
+                                        </div>
+                                        <div  class="col-md-2">
+                                            <button  (click)="approveRequest(request._id)" class="btn btn-success"><i class="fa fa-check"></i>Approve</button>
+                                        </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>

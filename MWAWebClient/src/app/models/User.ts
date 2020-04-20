@@ -19,4 +19,6 @@ export class User
         _zip?:string,
     }
     _image:string;
+    _sendNotifications?:boolean;
+    _notifications?:any[];
 }

@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
   city:string;
   street:string;
   zip:string;
+  sendNotifications:boolean;
 
   isProfileImageReady:boolean = false;
   imgToShow: any;
@@ -89,6 +90,7 @@ export class ProfileComponent implements OnInit {
     this.firstname = this.user._firstname;
     this.lastname = this.user._lastname;
     this.email = this.user._email;
+    this.sendNotifications = this.user._sendNotifications;
     if(this.user._dateOfBirth)
     {
       this.dateOfBirth = new Date(this.user._dateOfBirth);
@@ -186,6 +188,7 @@ export class ProfileComponent implements OnInit {
     };
     this.user._address = address;
     this.user._dateOfBirth = this.dateOfBirth;
+    this.user._sendNotifications = this.sendNotifications;
   }
 
   saveChanges()
@@ -194,16 +197,29 @@ export class ProfileComponent implements OnInit {
       this.getUserDetails();      
       this.usrSvc.saveUserChanges(this.user,(uzr) => {
         this.user = uzr;
-        this.uploadImage(() => {
+        if(this.selectedImage)
+        {
+          this.uploadImage(() => {
+            this.setFields();
+            alert('User details updated');
+          },err => {
+            alert('Updated details but couldnt upload image');
+          });
+        }
+        else
+        {
           this.setFields();
-          alert('User details updated');
-        },err => {
-          alert('Updated details but couldnt upload image');
-        });
+            alert('User details updated');
+        }
       },err => {
         alert('Failed to update details');
       })
     });
+  }
+
+  onChangeSendNotifications(sendNotn)
+  {
+    this.sendNotifications = sendNotn;
   }
 
 }

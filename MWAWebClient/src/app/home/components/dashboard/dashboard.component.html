@@ -1,7 +1,8 @@
 <header>
     <div class="container">
-      <img src="../assets/img/logo.png" class="logo" alt="">
-      <form class="form-inline"><h5>Welcome {{user._username}}</h5></form>
+      <form class="form-inline">
+        <h5>Welcome {{user._username}}<button class="badge badge-default" (click)="logOut()"> logout</button></h5>
+      </form>
     </div>
   </header>
 <nav class="navbar navbar-default">
@@ -19,8 +20,10 @@
           <li routerLinkActive="active"><a routerLink="home">Home</a></li>
           <li *ngIf="user._role == 'user'" routerLinkActive="active"><a routerLink="followers">Followers</a></li>
           <li *ngIf="user._role == 'user'" routerLinkActive="active"><a routerLink="profile">Profile</a></li>
+          <li *ngIf="user._role == 'user'" routerLinkActive="active"><a routerLink="notification">Notification</a></li>
           <li *ngIf="user._role == 'admin'" routerLinkActive="active"><a routerLink="manage-users">Manage Users</a></li>
           <li *ngIf="user._role == 'admin'" routerLinkActive="active"><a routerLink="manage-words">Filtered Words</a></li>
+          <li *ngIf="user._role == 'admin'" routerLinkActive="active"><a routerLink="unblock-requests">Unblocking Requests</a></li>
         </ul>
       </div>
     </div>

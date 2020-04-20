@@ -172,8 +172,18 @@ export class SignInComponent implements OnInit,OnDestroy {
       this.showLoading();
       this.authService.loginUser(usrCredentials,(usr) => {
         this.hideLoading();
-        this.router.navigate(['dashboard/home']);
+        if(''+usr._status == 'false')
+        {
+          this.router.navigate(['/blockedUser']);
+          alert('Your account has been deactivated');
+        }
+        else
+        {
+          this.router.navigate(['dashboard/home']);
+        }
       },err => {
+        console.log(err);
+        //blockedUser
         this.hideLoading();
         this.alertTitle = "Login Failed";
         this.alertMessage = err.error.message;

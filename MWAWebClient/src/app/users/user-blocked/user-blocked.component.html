@@ -1,0 +1,41 @@
+<header>
+    <div class="container">
+      <form class="form-inline">
+        <h5><button class="badge badge-default" (click)="logOut()"> logout</button></h5>
+      </form>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">          
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              Submit Unblocking Request
+            </div>
+            <div class="panel-body">
+                <h2>Account suspended</h2>
+              <form>
+                <div class="row form-group">
+                  <div class="col-md-2">
+                    <label>Reason</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="blockingReason" name="blockingReason" [(ngModel)] = "blockingReason" placeholder="Unblocking Reason">
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-md-2">
+                  </div>
+                  <div class="col-md-6">
+                    <button class="btn btn-success btn-block" (click)="submitRequest()">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>    
+      </div>
+    </div>
+  </section>

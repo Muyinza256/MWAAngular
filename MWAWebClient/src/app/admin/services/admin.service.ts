@@ -42,4 +42,54 @@ export class AdminService {
       failCallback(err);
     })
   }
+
+  getWords(callback,failCallback)
+  {
+    const url = `${this.url}admin/api/getWords`;
+    this.http.get(url,this.authService.getAuthorisationHeaders()).subscribe(data => {
+      callback(data);
+    },err => {
+      failCallback(err);
+    })
+  }
+
+  addWords(word,callback,failCallback)
+  {
+    const url = `${this.url}admin/api/createWord`;
+    this.http.post(url,word,this.authService.getAuthorisationHeaders()).subscribe(data => {
+      callback(data);
+    },err => {
+      failCallback(err);
+    })
+  }
+
+  getUnblockRequests(callback,failCallback)
+  {
+    const url = `${this.url}admin/api/getRequests`;
+    this.http.get(url,this.authService.getAuthorisationHeaders()).subscribe(data => {
+      callback(data);
+    },err => {
+      failCallback(err);
+    })
+  }
+
+  approveUnblockRequest(id,callback,failCallback)
+  {
+    const url = `${this.url}admin/api/approveUnblockRequest?id=${id}`;
+    this.http.put(url,{},this.authService.getAuthorisationHeaders()).subscribe(data => {
+      callback(data);
+    },err => {
+      failCallback(err);
+    })
+  }
+
+  declineUnblockRequest(id,callback,failCallback)
+  {
+    const url = `${this.url}admin/api/rejectUnblockRequest?id=${id}`;
+    this.http.put(url,{},this.authService.getAuthorisationHeaders()).subscribe(data => {
+      callback(data);
+    },err => {
+      failCallback(err);
+    })
+  }
 }

@@ -1,0 +1,37 @@
+<div class="panel panel-default post">
+    <div class="panel-body">
+        <div class="row">
+          <img *ngIf="isPostDetailImageReady" [src]="postDetailImageToShow" class="img-thumbnail" alt="">
+        </div>
+        <div class="row">          
+          <div class="col-sm-2">
+            <a class="post-avatar thumbnail"><img src="img/user.png" alt=""><div class="text-center">{{post._user._username}}</div></a>
+            <div class="likes text-center">{{post._likes.length}} Likes</div>
+          </div>
+          <div class="col-sm-10">
+            <div class="bubble">
+              <div class="pointer">
+                <span>{{post._text}}</span>
+              </div>
+              <div class="pointer-border"></div>
+            </div>
+            <span *ngIf="loggedInUser._role == 'admin' && post._censured" class="post-actions"><a (click)="uncensurePost()">Uncensure</a></span>
+            <span *ngIf="loggedInUser._role == 'user' && !userLike" class="post-actions"><a (click)="likePost()">Like</a></span>
+            <span *ngIf="loggedInUser._role == 'user' && userLike" class="post-actions"><a (click)="unlikePost()">UnLike</a></span>
+            <div class="comment-form">
+              <form *ngIf="loggedInUser._role == 'user'" class="form-inline">
+               <div class="form-group">
+                 <input type="text" [(ngModel)]="postDetailComment" id="postDetailComment" name="postDetailComment" class="form-control" placeholder="enter comment">
+               </div>
+               <button type="submit" class="btn btn-success" (click)="addComment()">+</button>
+             </form>
+            </div>
+            <div class="clearfix"></div>
+
+            <app-post-comment [postComments]="post._comments" [parentPost]="post" [loggedInUser]="loggedInUser">
+                
+            </app-post-comment>
+          </div>
+        </div>
+     </div>
+</div>

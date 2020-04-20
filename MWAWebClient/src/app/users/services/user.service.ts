@@ -16,7 +16,7 @@ export class UserService {
 
   getUserProfile(callback,failCallback){
     const url = `${this.url}users/api/profile`;
-    this.http.get<User[]>(url,this.authService.getAuthorisationHeaders()).subscribe(usr => {
+    this.http.get<User>(url,this.authService.getAuthorisationHeaders()).subscribe(usr => {
       callback(usr);
     },err =>{
       failCallback(err);
@@ -71,6 +71,26 @@ export class UserService {
     this.http.post<User>(url,follower,this.authService.getAuthorisationHeaders()).subscribe(user => {
       callback(user);
     },err => {
+      failCallback(err);
+    })
+  }
+
+  viewNotification(id,callback,failback)
+  {
+    const url = `${this.url}users/api/viewNotification?notificationId=${id}`;
+    this.http.get(url,this.authService.getAuthorisationHeaders()).subscribe(post => {
+      callback(post);
+    },err =>{
+      failback(err);
+    })
+  }
+
+  submitUnblockingRequest(req,callback,failCallback)
+  {
+    const url = `${this.url}users/api/requestUnblock`
+    this.http.post(url,req,this.authService.getAuthorisationHeaders()).subscribe(post => {
+      callback(post);
+    },err =>{
       failCallback(err);
     })
   }

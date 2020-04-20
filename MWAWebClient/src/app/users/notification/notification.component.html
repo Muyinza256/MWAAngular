@@ -1,0 +1,37 @@
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Notifications
+                </div>
+                <div class="panel-body">
+                    <div *ngFor="let notification of userNotifications">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <span>{{notification.madeBy._username}} has a {{notification.event.toLowerCase()}} </span>
+                                <button class="btn btn-default" (click)="viewNotification(notification._id)">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div *ngIf="selectedPost">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Notification Details
+                    </div>
+                    <div class="panel-body">
+                        <app-post-detail  [post]="selectedPost">
+                    
+                        </app-post-detail>  
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>      
+    </div>
+</section>

@@ -14,10 +14,13 @@ import { UsersRoutingModule } from './users-routing.module';
 import { ProfileComponent } from './profile/profile.component';
 import { FollowersComponent } from './followers/followers.component';
 import { FollowerItemComponent } from './follower-item/follower-item.component';
+import { NotificationComponent } from './notification/notification.component';
+import { PostsModule } from '../posts/posts.module';
+import { UserBlockedComponent } from './user-blocked/user-blocked.component';
 
 
 @NgModule({
-  declarations: [ProfileComponent, FollowersComponent, FollowerItemComponent],
+  declarations: [ProfileComponent, FollowersComponent, FollowerItemComponent, NotificationComponent, UserBlockedComponent],
   imports: [
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
@@ -30,6 +33,7 @@ import { FollowerItemComponent } from './follower-item/follower-item.component';
     CommonModule,
     FormsModule,
     HttpClientModule,
+    PostsModule,
     UsersRoutingModule
   ]
 })

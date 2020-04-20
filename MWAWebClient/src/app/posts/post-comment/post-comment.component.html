@@ -1,0 +1,12 @@
+<div class="comments">  
+    <div *ngFor="let coment of postComments">
+        <div class="comment">
+            <span class="pull-left">{{coment.user._username}} : </span>
+            <div class="coment-text">
+              <span> {{coment.text}}</span>
+              <button *ngIf="loggedInUser._role == 'user'" class="btn btn-danger pull-right" (click)="removeComment(coment._id)">-</button>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+    </div>
+  </div>
